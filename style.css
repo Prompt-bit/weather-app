@@ -1,0 +1,186 @@
+/* --- Base Styles --- */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: hsl(0, 0%, 95%);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.weatherForm {
+    margin: 20px;
+}
+
+.cityInput {
+    padding: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 2px solid hsla(0, 0%, 20%, 0.293);
+    border-radius: 10px;
+    margin: 10px;
+    width: 300px;
+}
+
+button[type="submit"], button {
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 500ms ease-out;
+}
+
+button[type="submit"] {
+    background-color: hsl(122, 39%, 51%);
+    color: white;
+}
+
+button[type="submit"]:hover {
+    background-color: hsl(122, 39%, 45%);
+}
+
+button {
+    background-color: hsl(49, 100%, 35%);
+    color: white;
+}
+
+button:hover {
+    background-color: hsl(49, 100%, 29%);
+}
+
+.card {
+    background: linear-gradient(180deg, hsl(275, 100%, 83%) ,hsl(214, 84%, 76%));
+    padding: 50px;
+    box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.616);
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}
+
+h2 {
+    font-size: 2.8rem;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+p {
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+.cityDisplay,
+.tempDisplay {
+    font-size: 3.2rem;
+    font-weight: bold;
+    color: hsla(0, 0%, 0%, 0.74);
+}
+
+.humidityDisplay {
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.descDisplay {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1.7rem;
+}
+
+.weatherEmoji {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.errorDisplay {
+    font-size: 2.1rem;
+    font-weight: bold;
+    color: hsla(0, 0%, 0%, 0.72);
+}
+
+a:visited { color: hsl(0, 0%, 100%); }
+a { color: hsl(0, 0%, 100%); }
+
+.app-info { display: none; }
+
+/* --- Sidebar --- */
+.sidebar {
+    width: 250px;
+    background-color: #333;
+    color: white;
+    height: 100vh;
+    padding: 2em;
+    box-sizing: border-box;
+    position: fixed;
+    right: 0;
+    overflow-y: auto; /* desktop default */
+}
+
+.sidebar p {
+    font-size: 15px;
+    
+}
+
+/* --- CSS-only Mobile Sidebar --- */
+#menuToggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none; /* hidden on desktop */
+    background-color: #add8e6;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Close button inside sidebar */
+.close-btn {
+    display: none; /* only show on mobile */
+    font-size: 24px;
+    text-align: right;
+    cursor: pointer;
+    color: white;
+}
+
+/* --- Mobile Styles --- */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+    .card {
+        padding: 10px;
+    }
+
+    .sidebar {
+        position: fixed;
+        height: 100%;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%); /* hidden by default */
+        z-index: 1000;
+        transition: transform 0.3s ease-out;
+    }
+
+    /* Show sidebar when checkbox is checked */
+    #menuToggle:checked ~ .sidebar {
+        transform: translateX(0);
+    }
+
+    /* Show menu button */
+    .menu-icon {
+        display: block;
+    }
+
+    /* Show close button inside sidebar */
+    #menuToggle:checked ~ .sidebar .close-btn {
+        display: block;
+    }
+
+    .content {
+        padding: 20px;
+    }
+}

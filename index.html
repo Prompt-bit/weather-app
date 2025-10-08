@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <title>WeatherFind 🌧️</title>
+</head>
+<body>
+  <input type="checkbox" id="menuToggle" />
+  <label for="menuToggle" class="menu-icon">☰</label>
+  
+    <form class="weatherForm">
+        <input type="text" class="cityInput" placeholder="Enter City">
+        <button type="submit">Get Weather</button>
+    </form>
+    
+    <div class="card" style="display: none;">
+    </div>
+    <div class="sidebar">
+        <label for="menuToggle" class="close-btn">×</label>
+        <button class="show">Show Application Info</button>
+        <div class="app-info">
+            <h3>Credits</h3>
+            Powered by OpenWeather Map ⛅ <br> <a href="https://openweathermap.org/">openweathermap.org/</a>
+            <h3>Copyright</h3>
+            Copyright &copy; WeatherFind 🌧️
+        </div>
+        <h4>WeatherFind 🌧️</h4>
+        <p>Find weathers on islands, countries, etc with ease!
+           <br><br>
+           Very easy to find weather conditions, just search on the search bar
+           <br><br>
+           WeatherFind 🌧️ provides real-time weather updates for any location worldwide. Get instant access to temperature, humidity, cloud details, and detailed forecasts. Whether you're planning a trip or just curious about the weather, WeatherFind 🌧️ makes it simple and fast to stay informed.
+        </p>
+        <h4>This app has a PWA!</h4>
+        <button id="installBtn">Install App</button>
+    </div>
+
+
+    <script src="index.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+                .then(() => console.log('SW Registered'))
+                .catch(err => console.log('SW Registration Failed:', err));
+        }
+    </script>
+</body>
+</html>
